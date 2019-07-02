@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "TankTurret.h"
 #include "TankBarrel.h"
 #include "TankAimingComponent.h"
 
@@ -72,6 +73,8 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DeltaRotator /*(Difference in Rotator)*/ = AimAsRotator - BarrelRotator;
 
 	Barrel->Elevate(DeltaRotator.Pitch); //TODO remove magic number
+
+	Turret->Rotate(DeltaRotator.Yaw);
 }
 
 
