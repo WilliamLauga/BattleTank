@@ -6,6 +6,7 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
+class AProjectile;
 class UTankTurret;
 class UTankBarrel;
 class UTankAimingComponent;
@@ -42,4 +43,10 @@ public:
 		void Fire();
 
 	void AimAt(FVector HitLocation);
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+		TSubclassOf<AProjectile> ProjectileBluepint;
+
+	//local barrel reeference for spawning projectile
+	UTankBarrel* Barrel = nullptr;
 };
